@@ -1,0 +1,1 @@
+# przeciaganie_liny
