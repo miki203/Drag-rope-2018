@@ -31,8 +31,11 @@ public class Watek_klienta implements Runnable {
                     System.out.println("Klient wyslal: " + dane);
                     sendToAll(dane);
                 } catch (Exception e) {
+                    lista_klientow.remove(this);
+                    System.out.println("Usunalem klienta");
                     socket.close();
                     out.close();
+                    break;
                 }
             }
         } catch (IOException e) {
