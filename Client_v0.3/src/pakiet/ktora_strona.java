@@ -10,7 +10,6 @@ public class ktora_strona {
     private JPanel Panel;
     private JButton lewyButton;
     private JButton prawyButton;
-    private JButton botButton;
 
     public ktora_strona(String title) {
         frame = new JFrame(title);
@@ -29,13 +28,6 @@ public class ktora_strona {
             @Override
             public void actionPerformed(ActionEvent e) {
                 new Main("Przeciaganie liny", "prawy");
-                frame.setVisible(false);
-            }
-        });
-        botButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                new Main("Przeciaganie liny", "bot");
                 frame.setVisible(false);
             }
         });

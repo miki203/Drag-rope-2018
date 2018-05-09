@@ -24,16 +24,15 @@ class Client implements Runnable {
         this.strona = strona;
     }
 
-
     public void run() {
         try {
             socket = new Socket("localhost"/*rpihome.ddns.net"*/, 9090);
             in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
             out = new PrintWriter(new OutputStreamWriter(socket.getOutputStream()), true);
 
-
             frame.addKeyListener(new Key(progressBar1, out, strona));
-            while (strona != "bot") {           //nasluchuj caly czas
+
+            while (true) {           //nasluchuj caly czas
                 String dane_str = in.readLine();
                 int dane = Integer.parseInt(dane_str);
                 progressBar1.setValue(dane);                            //odbieram z serwera i ustawiam wartosc
@@ -62,15 +61,11 @@ class Client implements Runnable {
             e.printStackTrace();
 
         } catch (IOException e) {
-            e.printStackTrace();
-        } finally {
-            try {
-                out.close();
-                socket.close();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+            System.out.println("szukam serwera");
+            run();
+            // e.printStackTrace();
         }
+
     }
 
     public void wygrales() {
