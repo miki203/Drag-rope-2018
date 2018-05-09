@@ -10,7 +10,7 @@ class Client implements Runnable {
     Socket socket;
     public PrintWriter out;
     public BufferedReader in;
-
+    private Key litner;
     JProgressBar progressBar1;
     JLabel lab;
     JFrame frame;
@@ -30,8 +30,8 @@ class Client implements Runnable {
             in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
             out = new PrintWriter(new OutputStreamWriter(socket.getOutputStream()), true);
 
-            frame.addKeyListener(new Key(progressBar1, out, strona));
-
+            litner = new Key(progressBar1, out, strona);
+            frame.addKeyListener(litner);
             while (true) {           //nasluchuj caly czas
                 String dane_str = in.readLine();
                 int dane = Integer.parseInt(dane_str);
@@ -62,8 +62,8 @@ class Client implements Runnable {
 
         } catch (IOException e) {
             System.out.println("szukam serwera");
+            frame.removeKeyListener(litner);
             run();
-            // e.printStackTrace();
         }
 
     }
