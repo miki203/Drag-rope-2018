@@ -55,8 +55,8 @@ public class Watek_klienta implements Runnable {
 //    }
 
     private void sendToAll(String msg) {
-        for (Watek_klienta klient : lista_klientow) {
-            klient.out.println(msg);
-        }
+            for (Watek_klienta klient : lista_klientow) {
+                klient.out.println(msg);
+            }
     }
 }

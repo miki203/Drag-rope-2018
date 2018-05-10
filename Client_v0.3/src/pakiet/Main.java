@@ -8,6 +8,8 @@ public class Main extends JFrame {
     private JPanel Panel1;
     private JProgressBar progressBar1;
     private JLabel lab;
+    private JLabel point_stud;
+    private JLabel point_uz;
 
 
     String strona;
@@ -22,7 +24,7 @@ public class Main extends JFrame {
         frame.pack();
         frame.setVisible(true);
         init();
-        Client client = new Client(progressBar1, lab, frame, strona);
+        Client client = new Client(point_stud, point_uz, progressBar1, lab, frame, strona);
         Thread thread = new Thread(client);
         thread.start();
         System.out.println(strona);

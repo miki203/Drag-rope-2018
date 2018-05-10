@@ -8,7 +8,7 @@ import java.io.PrintWriter;
 public class Key implements KeyListener {
 
     private JProgressBar progressBar1;
-    public PrintWriter out;
+    private PrintWriter out;
     private String strona;
 
     public Key(JProgressBar progressBar1, PrintWriter out, String strona) {
@@ -41,7 +41,7 @@ public class Key implements KeyListener {
                 out.println(Integer.toString(wyslij));
             }
         }
-        if(znak == 'r') {
+        if (znak == 'r' && (progressBar1.getValue() == progressBar1.getMaximum() || progressBar1.getValue() == progressBar1.getMinimum())) {
             out.println(50);
         }
     }
