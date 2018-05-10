@@ -20,7 +20,7 @@ public class Watek_klienta implements Runnable {
         new Thread(this).start();
     }
 
-    public void run() {
+    synchronized public void run() {
         try {
             in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
             out = new PrintWriter(socket.getOutputStream(), true);
